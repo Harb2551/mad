@@ -1,0 +1,63 @@
+package com.example.l8;
+import androidx.appcompat.app.AppCompatActivity;
+ import android.content.Intent; import android.net.Uri;
+import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.provider.ContactsContract; import android.view.View;
+import android.widget.EditText;
+public class MainActivity extends AppCompatActivity { EditText number;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(saved I nsta nc eStat e); setContentView(R. la yo ut.activ ity_main);
+number=findViewById (R. id.num); }
+public void one(View v) {
+number.append( "1 ");
+}
+public void two(View v) {
+number.append( "2 ");
+}
+public void three(View v) {
+number.append( "3 ");
+}
+public void four(View v) {
+number.append( "4 "); }
+public void five(View v) {
+number.append( "5 "); }
+public void six(View v)
+
+{
+number.append( "6 ");
+}
+public void seven(View v) {
+number.append( "7 "); }
+public void eight(View v)
+{
+number.append( "8 ");
+}
+public void nine(View v) {
+number.append( "9 "); }
+public void zero(View v)
+{
+number.append( "0 ");
+}
+public void star(View v) {
+number.append( "* "); }
+public void hash(View v) {
+number.append( "# ");
+}
+public void delete(View v) {
+String n=number.getText().toString();
+n=n.substr ing(0, n. le ngt h( )- 1);
+number.setText(n); }
+public void call(View v) {
+String num=number.getText().toString();
+Intent i =new Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+num));
+//Intent i =new Intent(Intent.ACTION_VIEW,Uri.parse(num));
+startActivity(i); }
+
+public void save(View v) {
+String num=number.getText().toString();
+Intent i =new Intent(Intent.ACTION_INSERT, ContactsContract.Contacts.CONTENT_URI);
+i.putExtra(Co ntac tsCo ntract.Inte nts.Inse rt.PHONE,num);
+startActivity(i); }
+}
